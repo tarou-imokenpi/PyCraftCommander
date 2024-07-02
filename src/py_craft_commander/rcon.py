@@ -34,17 +34,6 @@ class Packet:
     empty_string: bytes = b"\x00\x00"
 
 
-class RCONClient:
-    def __init__(self, host, port, password):
-        self.host = host
-        self.port = port
-        self.password = password
-
-    def row_data_send(self, command):
-        with RCON(self.host, self.port, self.password) as rcon:
-            return rcon.command(command)
-
-
 class RCON:
     """RCONプロトコルを用いてMinecraftサーバーにコマンドを送信するためのクラス"""
 
@@ -91,18 +80,24 @@ class RCON:
 
         raise Exception("RCON認証に失敗しました。\nパスワードが間違っているようです。")
 
-    def server_response_value(self):
+    def server_response_value(self, request_id: int):
         """サーバーからのレスポンスを受信します。"""
-        response = self.receive_packet()
-        print(f"Packet Size: {response.size}")
-        print(f"Request ID: {response.request_id}")
-        print(f"Type: {response.type}")
-        print(f"Body: {response.body}")
+        packet: Packet = self.receive_packet()
+        # -----------------------------------
+        # debug only
+        # print(f"Packet Size: {packet.size}")
+        # print(f"Request ID: {packet.request_id}")
+        # print(f"Type: {packet.type}")
+        # print(f"Body: {packet.body}")
+        # -----------------------------------
+        if packet.request_id == request_id:
+            return (packet.body.decode("utf-8"), True)
+        return ("", False)
 
-    def command(self, command):
+    def send_command(self, command):
         """マインクラフトサーバーにコマンドを送信します。"""
         request_id = self.send_packet(PacketType.SERVERDATA_EXECCOMMAND, command)
-        return self.server_response_value()
+        return self.server_response_value(request_id)
 
     def send_packet(self, type: int, body: str) -> bytes:
         """パケットを送信し、リクエストIDを返します。"""
