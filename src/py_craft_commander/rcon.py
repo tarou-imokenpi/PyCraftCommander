@@ -94,7 +94,7 @@ class RCON:
             return (packet.body.decode("utf-8"), True)
         return ("", False)
 
-    def send_command(self, command):
+    def send_command(self, command) -> tuple[str, bool]:
         """マインクラフトサーバーにコマンドを送信します。"""
         request_id = self.send_packet(PacketType.SERVERDATA_EXECCOMMAND, command)
         return self.server_response_value(request_id)
