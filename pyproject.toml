@@ -122,7 +122,7 @@ dependencies = []
 #
 #   $ pip install sampleproject[dev]
 #
-# Optional dependencies the project provides. These are commonly 
+# Optional dependencies the project provides. These are commonly
 # referred to as "extras". For a more extensive definition see:
 # https://packaging.python.org/en/latest/specifications/dependency-specifiers/#extras
 [project.optional-dependencies]
