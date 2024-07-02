@@ -1,0 +1,2 @@
+# PyCraftCommander
+minecraftのRCONを用いてminecraftコマンドを実行できるpythonライブラリ
