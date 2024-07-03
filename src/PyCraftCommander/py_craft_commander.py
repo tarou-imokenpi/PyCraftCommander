@@ -1,4 +1,4 @@
-from rcon import RCON
+from PyCraftCommander.rcon import RCON
 
 
 class PyCraftCommander(RCON):
