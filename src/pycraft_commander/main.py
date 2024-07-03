@@ -1,4 +1,4 @@
-from py_craft_commander import PyCraftCommander
+from pycraft_commander import PyCraftCommander
 
 host = "localhost"
 port = 25575
