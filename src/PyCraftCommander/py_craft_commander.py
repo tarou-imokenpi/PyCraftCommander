@@ -46,6 +46,20 @@ class PyCraftCommander(RCON):
         Returns:
         -------
             Player: プレイヤーオブジェクト
+
+        Example:
+        --------
+        ```python
+        p = server.get_player_info("player_name")
+
+        print(f"プレイヤー名:{p.name}")
+        print(f"座標:{p.pos}")
+        print(f"X:{p.pos.x}")
+        print(f"Y:{p.pos.y}")
+        print(f"Z:{p.pos.z}")
+        print(f"ディメンション:{p.dimension}")
+        print(f"ゲームモード:{p.gamemode}")
+        ```
         """
         response, status = self.send_command(f"data get entity {player} Pos")
         if not status:
