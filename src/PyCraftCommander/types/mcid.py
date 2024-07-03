@@ -59,7 +59,11 @@ MinecraftVersion = Literal["1.21"]
 
 
 def GET_MCID(MinecraftVersion: MinecraftVersion) -> MCID:
-    """マインクラフトIDを取得します。"""
+    """マインクラフトIDの列挙型を取得します。
+
+    対応バージョン:
+        - 1.21
+    """
 
     if MinecraftVersion == "1.21":
         return V1_21
