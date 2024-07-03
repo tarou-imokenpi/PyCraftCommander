@@ -18,24 +18,6 @@ class PyCraftCommander(RCON):
             return []
         return response.split(": ")[1].split(", ")
 
-    def tp(self, from_: str, to: str) -> str:
-        """プレイヤーをテレポートします。
-
-        Args:
-        -----
-            from_ (str): 移動させるプレイヤー
-            to (str): 移動先のプレイヤー
-
-        return:
-        ------
-            str: レスポンスメッセージ
-        """
-        if from_ == to and (from_ not in "@" or to not in "@"):
-            return "同じプレイヤーにはテレポートできません。"
-
-        response, status = self.send_command(f"tp {from_} {to}")
-        return response
-
     def get_player_info(self, player: str) -> Player:
         """プレイヤーの情報を取得します。
 
@@ -80,3 +62,21 @@ class PyCraftCommander(RCON):
         gamemode = response.split(" ")[-1]
 
         return Player(player, Pos(x, y, z), dimension, gamemode)
+
+    def tp(self, from_: str, to: str) -> str:
+        """プレイヤーをテレポートします。
+
+        Args:
+        -----
+            from_ (str): 移動させるプレイヤー
+            to (str): 移動先のプレイヤー
+
+        return:
+        ------
+            str: レスポンスメッセージ
+        """
+        if from_ == to and (from_ not in "@" or to not in "@"):
+            return "同じプレイヤーにはテレポートできません。"
+
+        response, status = self.send_command(f"tp {from_} {to}")
+        return response
