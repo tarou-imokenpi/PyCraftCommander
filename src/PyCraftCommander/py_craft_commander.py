@@ -1,5 +1,4 @@
 from PyCraftCommander.rcon import RCON
-from typing import Literal
 
 
 class PyCraftCommander(RCON):
