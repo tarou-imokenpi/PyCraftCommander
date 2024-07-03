@@ -30,7 +30,7 @@ class PyCraftCommander(RCON):
             str: レスポンスメッセージ
         """
         if from_ == to and (from_ not in "@" or to not in "@"):
-            return "同じプレイヤーにはテレポートできません。", False
+            return "同じプレイヤーにはテレポートできません。"
 
         response, status = self.send_command(f"tp {from_} {to}")
         return response
