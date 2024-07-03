@@ -2,11 +2,7 @@ from enum import StrEnum
 from typing import Literal
 
 
-class MCID(StrEnum):
-    """マインクラフトIDの列挙型です。"""
-
-
-class V1_21(MCID):
+class V1_21(StrEnum):
     """v1.21のマインクラフトIDの列挙型です。"""
 
     # A
@@ -58,7 +54,7 @@ class V1_21(MCID):
 MinecraftVersion = Literal["1.21"]
 
 
-def GET_MCID(MinecraftVersion: MinecraftVersion) -> MCID:
+def GET_MCID(MinecraftVersion: MinecraftVersion):
     """マインクラフトIDの列挙型を取得します。
 
     対応バージョン:
