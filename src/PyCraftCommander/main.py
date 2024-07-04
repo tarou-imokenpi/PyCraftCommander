@@ -1,6 +1,7 @@
 from PyCraftCommander import PyCraftCommander, Player, GET_MCID
 import random
 import time
+from copy import deepcopy
 
 host = "localhost"
 port = 25575
@@ -17,11 +18,19 @@ with PyCraftCommander(host, port, password) as server:
 
     print(f"プレイヤー名:{p.name}")
     print(f"座標:{p.pos}")
-    print(f"X:{p.pos.x}")
-    print(f"Y:{p.pos.y}")
-    print(f"Z:{p.pos.z}")
     print(f"ディメンション:{p.dimension}")
     print(f"ゲームモード:{p.gamemode}")
 
-    a = server.set_block(p, MCID.ACACIA_WOOD)
-    print(a)
+    num = 10
+
+    block = MCID.GOLD_BLOCK
+
+    area = deepcopy(p.int_pos)
+
+    pos1 = area
+    pos2 = area
+    pos2.x += num
+    pos2.y += num
+    res = server.fill(pos1, pos2, block)
+
+    print(res)

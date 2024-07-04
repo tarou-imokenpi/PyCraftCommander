@@ -108,7 +108,7 @@ class PyCraftCommander(RCON):
             str: レスポンスメッセージ
         """
         if isinstance(pos, Player):
-            pos = pos.pos
+            pos = pos.int_pos
 
         response, status = self.send_command(f"setblock {pos} {block_id} {mode}")
         return response

@@ -623,6 +623,8 @@ class V1_21(StrEnum):
     IRON_TRAPDOOR = "minecraft:iron_trapdoor"
     ITEM_FRAME = "minecraft:item_frame"
 
+    # J
+
 
 MinecraftVersion = Literal["1.21"]
 
