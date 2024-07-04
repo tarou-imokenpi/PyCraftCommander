@@ -64,7 +64,9 @@ class PyCraftCommander(RCON):
             return None
         gamemode = response.split(" ")[-1]
 
-        return Player(player_name, Pos(x, y, z), dimension, gamemode)
+        return Player(
+            player_name, Pos(x, y, z), Pos(int(x), int(y), int(z)), dimension, gamemode
+        )
 
     def tp(self, from_: str | Player, to: str | Player) -> str:
         """プレイヤーをテレポートします。

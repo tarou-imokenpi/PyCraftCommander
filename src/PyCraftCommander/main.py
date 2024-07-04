@@ -2,9 +2,9 @@ from PyCraftCommander import PyCraftCommander, Player, GET_MCID
 import random
 import time
 
-host = "10.0.68.31"
+host = "localhost"
 port = 25575
-password = "taro"
+password = "admin"
 
 with PyCraftCommander(host, port, password) as server:
     MCID = GET_MCID("1.21")
@@ -23,7 +23,5 @@ with PyCraftCommander(host, port, password) as server:
     print(f"ディメンション:{p.dimension}")
     print(f"ゲームモード:{p.gamemode}")
 
-    # server.send_command(f"give @a {MCID.ACACIA_BUTTON}")
-    for i in range(10):
-        server.send_command(f"setblock {p.pos.x} {p.pos.y} {p.pos.z} {MCID.ACACIA_LOG}")
-        time.sleep(0.5)
+    a = server.set_block(p, MCID.ACACIA_WOOD)
+    print(a)

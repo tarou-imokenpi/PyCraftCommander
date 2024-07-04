@@ -4,9 +4,9 @@ from enum import IntEnum
 
 @dataclass
 class Pos:
-    x: float
-    y: float
-    z: float
+    x: float | int
+    y: float | int
+    z: float | int
 
     def __str__(self):
         return f"{self.x} {self.y} {self.z}"
@@ -33,5 +33,6 @@ class Player:
 
     name: str
     pos: Pos
+    int_pos: Pos
     dimension: str
     gamemode: GameMode | str
