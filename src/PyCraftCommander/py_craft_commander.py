@@ -63,7 +63,7 @@ class PyCraftCommander(RCON):
 
         return Player(player, Pos(x, y, z), dimension, gamemode)
 
-    def tp(self, from_: str, to: str) -> str:
+    def tp(self, from_: str | Player, to: str | Player) -> str:
         """プレイヤーをテレポートします。
 
         Args:
@@ -77,6 +77,12 @@ class PyCraftCommander(RCON):
         """
         if from_ == to and (from_ not in "@" or to not in "@"):
             return "同じプレイヤーにはテレポートできません。"
+
+        if isinstance(from_, Player):
+            from_ = from_.name
+
+        if isinstance(to, Player):
+            to = to.name
 
         response, status = self.send_command(f"tp {from_} {to}")
         return response
