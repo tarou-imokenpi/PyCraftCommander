@@ -468,6 +468,36 @@ class V1_21(StrEnum):
     EXPOSED_CUT_COPPER_STAIRS = "minecraft:exposed_cut_copper_stairs"
     EYE_ARMOR_TRIM_SMITHING_TEMPLATE = "minecraft:eye_armor_trim_smithing_template"
 
+    # F
+    FARMLAND = "minecraft:farmland"
+    FEATHER = "minecraft:feather"
+    FERMENTED_SPIDER_EYE = "minecraft:fermented_spider_eye"
+    FERN = "minecraft:fern"
+    FILLED_MAP = "minecraft:filled_map"
+    FIRE_CHARGE = "minecraft:fire_charge"
+    FIRE_CORAL = "minecraft:fire_coral"
+    FIRE_CORAL_BLOCK = "minecraft:fire_coral_block"
+    FIRE_CORAL_FAN = "minecraft:fire_coral_fan"
+    FIREWORK_ROCKET = "minecraft:firework_rocket"
+    FIREWORK_STAR = "minecraft:firework_star"
+    FISHING_ROD = "minecraft:fishing_rod"
+    FLETCHING_TABLE = "minecraft:fletching_table"
+    FLINT = "minecraft:flint"
+    FLINT_AND_STEEL = "minecraft:flint_and_steel"
+    FLOW_ARMOR_TRIM_SMITHING_TEMPLATE = "minecraft:flow_armor_trim_smithing_template"
+    FLOW_BANNER_PATTERN = "minecraft:flow_banner_pattern"
+    FLOW_POTTERTY_SHARD = "minecraft:flow_ppottery_shard"
+    FLOWER_BANNER_PATTERN = "minecraft:flower_banner_pattern"
+    FLOWER_POT = "minecraft:flower_pot"
+    FLOWERING_AZALEA = "minecraft:flowering_azalea"
+    FLOWERING_AZALEA_LEAVES = "minecraft:flowering_azalea_leaves"
+    FOX_SPAWN_EGG = "minecraft:fox_spawn_egg"
+    FRIEND_POTTERY_SHARD = "minecraft:friend_pottery_shard"
+    FROG_SPAWN_EGG = "minecraft:frog_spawn_egg"
+    FROGSPAWN = "minecraft:frogspawn"
+    FURNACE = "minecraft:furnace"
+    FURNACE_MINECART = "minecraft:furnace_minecart"
+
 
 MinecraftVersion = Literal["1.21"]
 
