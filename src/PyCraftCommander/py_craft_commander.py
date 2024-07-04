@@ -18,7 +18,7 @@ class PyCraftCommander(RCON):
             return []
         return response.split(": ")[1].split(", ")
 
-    def get_player_info(self, player: str) -> Player:
+    def get_player_info(self, player_name: str) -> Player:
         """プレイヤーの情報を取得します。
 
         Args:
@@ -43,7 +43,7 @@ class PyCraftCommander(RCON):
         print(f"ゲームモード:{p.gamemode}")
         ```
         """
-        response, status = self.send_command(f"data get entity {player} Pos")
+        response, status = self.send_command(f"data get entity {player_name} Pos")
         if not status:
             return None
         pos = response.split(": ")[-1]
@@ -51,17 +51,19 @@ class PyCraftCommander(RCON):
 
         x, y, z = float(pos[0][:-1]), float(pos[1][:-1]), float(pos[2][:-1])
 
-        response, status = self.send_command(f"data get entity {player} Dimension")
+        response, status = self.send_command(f"data get entity {player_name} Dimension")
         if not status:
             return None
         dimension = response.split(" ")[-1]
 
-        response, status = self.send_command(f"data get entity {player} playerGameType")
+        response, status = self.send_command(
+            f"data get entity {player_name} playerGameType"
+        )
         if not status:
             return None
         gamemode = response.split(" ")[-1]
 
-        return Player(player, Pos(x, y, z), dimension, gamemode)
+        return Player(player_name, Pos(x, y, z), dimension, gamemode)
 
     def tp(self, from_: str | Player, to: str | Player) -> str:
         """プレイヤーをテレポートします。
