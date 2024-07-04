@@ -16,7 +16,7 @@ class PyCraftCommander(RCON):
         response, status = self.send_command("list")
         if not status:
             return []
-        return response.split(": ")[1].split(", ")
+        return sorted(response.split(": ")[1].split(", "))
 
     def get_player_info(self, player_name: str) -> Player:
         """プレイヤーの情報を取得します。
