@@ -593,6 +593,36 @@ class V1_21(StrEnum):
     HOWL_POTTERY_SHARD = "minecraft:howl_pottery_shard"
     HUSK_SPAWN_EGG = "minecraft:husk_spawn_egg"
 
+    # I
+    ICE = "minecraft:ice"
+    INFESTED_CHISELED_STONE_BRICKS = "minecraft:infested_chiseled_stone_bricks"
+    INFESTED_COBBLESTONE = "minecraft:infested_cobblestone"
+    INFESTED_CRACKED_STONE_BRICKS = "minecraft:infested_cracked_stone_bricks"
+    INFESTED_DEEPSLATE = "minecraft:infested_deepslate"
+    INFESTED_MOSSY_STONE_BRICKS = "minecraft:infested_mossy_stone_bricks"
+    INFESTED_STONE = "minecraft:infested_stone"
+    INFESTED_STONE_BRICKS = "minecraft:infested_stone_bricks"
+    INK_SAC = "minecraft:ink_sac"
+    IRON_AXE = "minecraft:iron_axe"
+    IRON_BARS = "minecraft:iron_bars"
+    IRON_BLOCK = "minecraft:iron_block"
+    IRON_BOOTS = "minecraft:iron_boots"
+    IRON_CHESTPLATE = "minecraft:iron_chestplate"
+    IRON_DOOR = "minecraft:iron_door"
+    IRON_GOLEM_SPAWN_EGG = "minecraft:iron_golem_spawn_egg"
+    IRON_HELMET = "minecraft:iron_helmet"
+    IRON_HOE = "minecraft:iron_hoe"
+    IRON_HORSE_ARMOR = "minecraft:iron_horse_armor"
+    IRON_INGOT = "minecraft:iron_ingot"
+    IRON_LEGGINGS = "minecraft:iron_leggings"
+    IRON_NUGGET = "minecraft:iron_nugget"
+    IRON_ORE = "minecraft:iron_ore"
+    IRON_PICKAXE = "minecraft:iron_pickaxe"
+    IRON_SHOVEL = "minecraft:iron_shovel"
+    IRON_SWORD = "minecraft:iron_sword"
+    IRON_TRAPDOOR = "minecraft:iron_trapdoor"
+    ITEM_FRAME = "minecraft:item_frame"
+
 
 MinecraftVersion = Literal["1.21"]
 
