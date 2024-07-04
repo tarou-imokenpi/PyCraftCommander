@@ -1,5 +1,6 @@
 from PyCraftCommander.rcon import RCON
 from PyCraftCommander.types.player import Player, Pos
+from typing import Literal
 
 
 class PyCraftCommander(RCON):
@@ -79,12 +80,61 @@ class PyCraftCommander(RCON):
         """
         if from_ == to and (from_ not in "@" or to not in "@"):
             return "同じプレイヤーにはテレポートできません。"
-
         if isinstance(from_, Player):
             from_ = from_.name
-
         if isinstance(to, Player):
             to = to.name
 
         response, status = self.send_command(f"tp {from_} {to}")
+        return response
+
+    def set_block(
+        self,
+        pos: Player | Pos | str,
+        block_id: str,
+        mode: Literal["replace", "keep", "destroy"] = "replace",
+    ) -> str:
+        """ブロックを設置します。
+
+        Args:
+        -----
+            pos (Player | Pos | str): ブロックを設置する座標
+            block_id (str): ブロックID
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(pos, Player):
+            pos = pos.pos
+
+        response, status = self.send_command(f"setblock {pos} {block_id} {mode}")
+        return response
+
+    def fill(
+        self,
+        pos1: Player | Pos | str,
+        pos2: Player | Pos | str,
+        block_id: str,
+        mode: Literal["replace", "keep", "destroy", "hollow", "outline"] = "replace",
+    ):
+        """範囲内にブロックを設置します。
+
+        Args:
+        -----
+            pos1 (Player | Pos | str): 範囲の座標1
+            pos2 (Player | Pos | str): 範囲の座標2
+            block_id: ブロックID
+            mode: モード
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(pos1, Player):
+            pos1 = pos1.pos
+        if isinstance(pos2, Player):
+            pos2 = pos2.pos
+
+        response, status = self.send_command(f"fill {pos1} {pos2} {block_id} {mode}")
         return response
