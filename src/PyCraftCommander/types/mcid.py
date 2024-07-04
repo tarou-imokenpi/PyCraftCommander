@@ -570,6 +570,30 @@ class V1_21(StrEnum):
     GUSTER_BANNER_PATTERN = "minecraft:guster_banner_pattern"
     GUSTER_POTTERY_SHARD = "minecraft:guster_ppottery_shard"
 
+    # H
+    HANGING_ROOTS = "minecraft:hanging_roots"
+    HAY_BLOCK = "minecraft:hay_block"
+    HEART_OF_THE_SEA = "minecraft:heart_of_the_sea"
+    HEART_POTTERY_SHARD = "minecraft:heart_pottery_shard"
+    HEARTBREAK_POTTERY_SHARD = "minecraft:heartbreak_pottery_shard"
+    HEAVY_CORE = "minecraft:heavy_core"
+    HEAVY_WEIGHTED_PRESSURE_PLATE = "minecraft:heavy_weighted_pressure_plate"
+    HOGLIN_SPAWN_EGG = "minecraft:hoglin_spawn_egg"
+    HONEY_BLOCK = "minecraft:honey_block"
+    HONEY_BOTTLE = "minecraft:honey_bottle"
+    HONEYCOMB = "minecraft:honeycomb"
+    HONEYCOMB_BLOCK = "minecraft:honeycomb_block"
+    HOPPER = "minecraft:hopper"
+    HOPPER_MINECART = "minecraft:hopper_minecart"
+    HORN_CORAL = "minecraft:horn_coral"
+    HORN_CORAL_BLOCK = "minecraft:horn_coral_block"
+    HORN_CORAL_FAN = "minecraft:horn_coral_fan"
+    HORSE_SPAWN_EGG = "minecraft:horse_spawn_egg"
+    HOST_ARMOR_TRIM_SMITHING_TEMPLATE = "minecraft:host_armor_trim_smithing_template"
+    HOWL_POTTERY_SHARD = "minecraft:howl_pottery_shard"
+    HUSK_SPAWN_EGG = "minecraft:husk_spawn_egg"
+
+
 MinecraftVersion = Literal["1.21"]
 
 
