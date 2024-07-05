@@ -183,3 +183,21 @@ class PyCraftCommander(RCON):
 
         response, status = self.send_command(f"give {target} {item} {count}")
         return response
+
+    def clear(self, target: str | Player, item: str = "") -> str:
+        """アイテムをクリアします。
+
+        Args:
+        -----
+            target (str | Player): 対象プレイヤー
+            item (str): アイテムID
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(f"clear {target} {item}")
+        return response
