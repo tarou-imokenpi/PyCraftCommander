@@ -119,7 +119,7 @@ class PyCraftCommander(RCON):
         pos2: Player | Pos | str,
         block_id: str,
         mode: Literal["replace", "keep", "destroy", "hollow", "outline"] = "replace",
-    ):
+    ) -> str:
         """範囲内にブロックを設置します。
 
         Args:
@@ -147,7 +147,7 @@ class PyCraftCommander(RCON):
             GameMode | Literal["survival", "creative", "adventure", "spectator"] | int
         ),
         target: str | Player,
-    ):
+    ) -> str:
         """ゲームモードを変更します。
 
         Args:
@@ -163,4 +163,23 @@ class PyCraftCommander(RCON):
             target = target.name
 
         response, status = self.send_command(f"gamemode {mode} {target}")
+        return response
+
+    def give(self, target: str | Player, item: str, count: int = 1) -> str:
+        """アイテムを付与します。
+
+        Args:
+        -----
+            target (str | Player): 対象プレイヤー
+            item (str): アイテムID
+            count (int): 個数
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(f"give {target} {item} {count}")
         return response
