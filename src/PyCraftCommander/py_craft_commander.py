@@ -217,3 +217,78 @@ class PyCraftCommander(RCON):
         """
         response, status = self.send_command(f"difficulty {difficulty}")
         return response
+
+    def effect_clear(self, target: str | Player, effect: str) -> str:
+        """エフェクトをクリアします。
+
+        Args:
+        -----
+            target (str | Player): 対象プレイヤー
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(f"effect clear {target} {effect}")
+        return response
+
+    def effect_give(
+        self,
+        target: str | Player,
+        effect: str,
+        seconds: int,
+        lavel: int = 0,
+        hideParticles: bool = False,
+    ) -> str:
+        """エフェクトを付与します。
+
+        Args:
+        -----
+            target (str | Player): 対象プレイヤー
+            effect (str): エフェクトID
+            seconds (int): 持続時間(秒)
+            lavel (int): レベル(0から255の値)
+            hideParticles (bool): パーティクルを非表示にするか
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(
+            f"effect give {target} {effect} {seconds} {lavel} {hideParticles}"
+        )
+        return response
+
+    def effect_give_infinite(
+        self,
+        target: str | Player,
+        effect: str,
+        lavel: int = 0,
+        hideParticles: bool = False,
+    ) -> str:
+        """エフェクトを無限に付与します。
+
+        Args:
+        -----
+            target (str | Player): 対象プレイヤー
+            effect (str): エフェクトID
+            lavel (int): レベル(0から255の値)
+            hideParticles (bool): パーティクルを非表示にするか
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(
+            f"effect give {target} {effect} infinite {lavel} {hideParticles}"
+        )
+        return response
