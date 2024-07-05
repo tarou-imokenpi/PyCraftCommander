@@ -201,3 +201,19 @@ class PyCraftCommander(RCON):
 
         response, status = self.send_command(f"clear {target} {item}")
         return response
+
+    def difficulty(
+        self, difficulty: Literal["peaceful", "easy", "normal", "hard"] | int
+    ) -> str:
+        """難易度を変更します。
+
+        Args:
+        -----
+            difficulty (str): 難易度
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        response, status = self.send_command(f"difficulty {difficulty}")
+        return response
