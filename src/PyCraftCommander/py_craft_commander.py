@@ -78,6 +78,22 @@ class PyCraftCommander(RCON):
         response, status = self.send_command("seed")
         return int(response.split(": ")[1][1:-1])
 
+    def set_world_spawn(self, pos: Player | Pos | str,angle:float=0.0) -> str:
+        """ワールドのスポーン地点を設定します。
+
+        Args:
+        -----
+            pos (Player | Pos | str): スポーン地点
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(pos, Player):
+            pos = pos.int_pos
+        response, status = self.send_command(f"setworldspawn {pos} {angle}")
+        return response
+
     def tp(self, from_: str | Player, to: str | Player) -> str:
         """プレイヤーをテレポートします。
 
