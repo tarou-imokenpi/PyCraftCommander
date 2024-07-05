@@ -457,3 +457,35 @@ class PyCraftCommander(RCON):
         if the_end:
             result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
         return result[:-1]
+    
+    def say(self, message: str) -> str:
+        """チャットにメッセージを送信します。
+
+        Args:
+        -----
+            message (str): メッセージ
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        response, status = self.send_command(f"say {message}")
+        return response
+    
+    def message(self, target: str | Player, message: str) -> str:
+        """プレイヤーにメッセージを送信します。
+
+        Args:
+        -----
+            target (str | Player): 対象プレイヤー
+            message (str): メッセージ
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(f"msg {target} {message}")
+        return response
