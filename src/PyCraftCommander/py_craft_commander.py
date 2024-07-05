@@ -1,5 +1,5 @@
 from PyCraftCommander.rcon import RCON
-from PyCraftCommander.types.player import Player, Pos
+from PyCraftCommander.types.player import Player, Pos, GameMode
 from typing import Literal
 
 
@@ -139,4 +139,28 @@ class PyCraftCommander(RCON):
             pos2 = pos2.pos
 
         response, status = self.send_command(f"fill {pos1} {pos2} {block_id} {mode}")
+        return response
+
+    def gamemode(
+        self,
+        mode: (
+            GameMode | Literal["survival", "creative", "adventure", "spectator"] | int
+        ),
+        target: str | Player,
+    ):
+        """ゲームモードを変更します。
+
+        Args:
+        -----
+            mode (str | int): ゲームモード
+            target (str | Player): 対象プレイヤー
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(f"gamemode {mode} {target}")
         return response
