@@ -240,7 +240,7 @@ class PyCraftCommander(RCON):
         target: str | Player,
         effect: str,
         seconds: int,
-        lavel: int = 0,
+        level: int = 0,
         hideParticles: bool = False,
     ) -> str:
         """エフェクトを付与します。
@@ -250,7 +250,7 @@ class PyCraftCommander(RCON):
             target (str | Player): 対象プレイヤー
             effect (str): エフェクトID
             seconds (int): 持続時間(秒)
-            lavel (int): レベル(0から255の値)
+            level (int): レベル(0から255の値)
             hideParticles (bool): パーティクルを非表示にするか
 
         Returns:
@@ -261,7 +261,7 @@ class PyCraftCommander(RCON):
             target = target.name
 
         response, status = self.send_command(
-            f"effect give {target} {effect} {seconds} {lavel} {hideParticles}"
+            f"effect give {target} {effect} {seconds} {level} {hideParticles}"
         )
         return response
 
@@ -269,7 +269,7 @@ class PyCraftCommander(RCON):
         self,
         target: str | Player,
         effect: str,
-        lavel: int = 0,
+        level: int = 0,
         hideParticles: bool = False,
     ) -> str:
         """エフェクトを無限に付与します。
@@ -278,7 +278,7 @@ class PyCraftCommander(RCON):
         -----
             target (str | Player): 対象プレイヤー
             effect (str): エフェクトID
-            lavel (int): レベル(0から255の値)
+            level (int): レベル(0から255の値)
             hideParticles (bool): パーティクルを非表示にするか
 
         Returns:
@@ -289,6 +289,25 @@ class PyCraftCommander(RCON):
             target = target.name
 
         response, status = self.send_command(
-            f"effect give {target} {effect} infinite {lavel} {hideParticles}"
+            f"effect give {target} {effect} infinite {level} {hideParticles}"
         )
+        return response
+
+    def enchant(self, target: str | Player, enchantment: str, level: int = 1) -> str:
+        """エンチャントを付与します。
+
+        Args:
+        -----
+            target (str | Player): 対象プレイヤー
+            enchantment (str): エンチャントID
+            level (int): そのエンチャントで可能な最大レベルまで指定可能
+
+        Returns:
+        -------
+            str: レスポンスメッセージ
+        """
+        if isinstance(target, Player):
+            target = target.name
+
+        response, status = self.send_command(f"enchant {target} {enchantment} {level}")
         return response
