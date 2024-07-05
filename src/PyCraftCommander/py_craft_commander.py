@@ -68,6 +68,16 @@ class PyCraftCommander(RCON):
             player_name, Pos(x, y, z), Pos(int(x), int(y), int(z)), dimension, gamemode
         )
 
+    def get_seed(self) -> int:
+        """ワールドのシードを取得します。
+
+        Returns:
+        -------
+            int: シード
+        """
+        response, status = self.send_command("seed")
+        return int(response.split(": ")[1][1:-1])
+
     def tp(self, from_: str | Player, to: str | Player) -> str:
         """プレイヤーをテレポートします。
 
@@ -457,7 +467,7 @@ class PyCraftCommander(RCON):
         if the_end:
             result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
         return result[:-1]
-    
+
     def say(self, message: str) -> str:
         """チャットにメッセージを送信します。
 
@@ -471,7 +481,7 @@ class PyCraftCommander(RCON):
         """
         response, status = self.send_command(f"say {message}")
         return response
-    
+
     def message(self, target: str | Player, message: str) -> str:
         """プレイヤーにメッセージを送信します。
 
