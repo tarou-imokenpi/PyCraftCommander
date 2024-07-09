@@ -645,6 +645,10 @@ class V1_21(StrEnum):
     JUNGLE_TRAPDOOR = "minecraft:jungle_trapdoor"
     JUNGLE_WOOD = "minecraft:jungle_wood"
 
+    # K
+    KELP = "minecraft:kelp"
+    KNOWLEDGE_BOOK = "minecraft:knowledge_book"
+
 
 MinecraftVersion = Literal["1.21"]
 
