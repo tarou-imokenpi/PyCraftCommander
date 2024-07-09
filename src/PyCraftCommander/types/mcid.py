@@ -1005,23 +1005,25 @@ class V1_21(StrEnum):
     QUARTZ_PILLAR = "minecraft:quartz_pillar"
     QUARTZ_SLAB = "minecraft:quartz_slab"
     QUARTZ_STAIRS = "minecraft:quartz_stairs"
+
     # R
-    
+
     # S
-    
+
     # T
-    
+
     # U
-    
+
     # V
-    
+
     # W
-    
+
     # X
-    
+
     # Y
-    
+
     # Z
+
 
 MinecraftVersion = Literal["1.21"]
 

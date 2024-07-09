@@ -78,7 +78,7 @@ class PyCraftCommander(RCON):
         response, status = self.send_command("seed")
         return int(response.split(": ")[1][1:-1])
 
-    def set_world_spawn(self, pos: Player | Pos | str,angle:float=0.0) -> str:
+    def set_world_spawn(self, pos: Player | Pos | str, angle: float = 0.0) -> str:
         """ワールドのスポーン地点を設定します。
 
         Args:
@@ -371,134 +371,134 @@ class PyCraftCommander(RCON):
         response, status = self.send_command(f"kill {target}")
         return response
 
-    def forceload_add(
-        self,
-        posA: str,
-        posB: str = None,
-        orver_world: bool = True,
-        the_nether: bool = False,
-        the_end: bool = False,
-    ) -> str:
-        """チャンクを強制ロードします。
+    # def forceload_add(
+    #     self,
+    #     posA: str,
+    #     posB: str = None,
+    #     orver_world: bool = True,
+    #     the_nether: bool = False,
+    #     the_end: bool = False,
+    # ) -> str:
+    #     """チャンクを強制ロードします。
 
-        チャンクの座標ではなくブロックの座標を指定する必要があります。
-        座標は、XとZの値をカンマで区切って指定します。
+    #     チャンクの座標ではなくブロックの座標を指定する必要があります。
+    #     座標は、XとZの値をカンマで区切って指定します。
 
-        注意:
-        * 作物の成長などランダムティックを使用するものは強制読み込みに加えチャンクの128ブロック以内の範囲にいないと機能しません。
+    #     注意:
+    #     * 作物の成長などランダムティックを使用するものは強制読み込みに加えチャンクの128ブロック以内の範囲にいないと機能しません。
 
-        Args:
-        -----
-            posA (str): <posA>の常時読み込みを強制する。
-            posB (str): <posB>を指定すると範囲を指定して、範囲全体を常時読み込みさせることができる。デフォルトはNone。
-            orver_world (bool): オーバーワールドを強制読み込みに追加するか。デフォルトはTrue。
-            the_nether (bool): ネザーを強制読み込みに追加するか。デフォルトはFalse。
-            the_end (bool): エンドを強制読み込みに追加するか。デフォルトはFalse。
+    #     Args:
+    #     -----
+    #         posA (str): <posA>の常時読み込みを強制する。
+    #         posB (str): <posB>を指定すると範囲を指定して、範囲全体を常時読み込みさせることができる。デフォルトはNone。
+    #         orver_world (bool): オーバーワールドを強制読み込みに追加するか。デフォルトはTrue。
+    #         the_nether (bool): ネザーを強制読み込みに追加するか。デフォルトはFalse。
+    #         the_end (bool): エンドを強制読み込みに追加するか。デフォルトはFalse。
 
-        Returns:
-        -------
-            str: レスポンスメッセージ
-        """
+    #     Returns:
+    #     -------
+    #         str: レスポンスメッセージ
+    #     """
 
-        command = f"forceload add {posA}"
-        if posB:
-            command += f" {posB}"
-        if orver_world:
-            result, status = self.send_command(command) + "\n"
-        if the_nether:
-            result, status += self.send_command(f"execute in minecraft:the_nether run {command}") + "\n"
-        if the_end:
-            result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
-        return result[:-1]
+    #     command = f"forceload add {posA}"
+    #     if posB:
+    #         command += f" {posB}"
+    #     if orver_world:
+    #         result, status = self.send_command(command)
+    #     if the_nether:
+    #         result, status += self.send_command(f"execute in minecraft:the_nether run {command}")
+    #     if the_end:
+    #         result, status += self.send_command(f"execute in minecraft:the_end run {command}")
+    #     return result[:-1]
 
-    def forceload_remove(
-        self,
-        posA: str,
-        posB: str = None,
-        orver_world: bool = True,
-        the_nether: bool = False,
-        the_end: bool = False,
-    ) -> str:
-        """強制ロードを解除します。
+    # def forceload_remove(
+    #     self,
+    #     posA: str,
+    #     posB: str = None,
+    #     orver_world: bool = True,
+    #     the_nether: bool = False,
+    #     the_end: bool = False,
+    # ) -> str:
+    #     """強制ロードを解除します。
 
-        チャンクの座標ではなくブロックの座標を指定する必要があります。
-        座標は、XとZの値をカンマで区切って指定します。
+    #     チャンクの座標ではなくブロックの座標を指定する必要があります。
+    #     座標は、XとZの値をカンマで区切って指定します。
 
-        Args:
-        -----
-            posA (str): <posA>の常時読み込みを解除する。
-            posB (str): <posB>を指定すると範囲を指定して、範囲全体の常時読み込みを解除することができる。デフォルトはNone。
-            orver_world (bool): オーバーワールドの強制読み込みを解除するか。デフォルトはTrue。
-            the_nether (bool): ネザーの強制読み込みを解除するか。デフォルトはFalse。
-            the_end (bool): エンドの強制読み込みを解除するか。デフォルトはFalse。
+    #     Args:
+    #     -----
+    #         posA (str): <posA>の常時読み込みを解除する。
+    #         posB (str): <posB>を指定すると範囲を指定して、範囲全体の常時読み込みを解除することができる。デフォルトはNone。
+    #         orver_world (bool): オーバーワールドの強制読み込みを解除するか。デフォルトはTrue。
+    #         the_nether (bool): ネザーの強制読み込みを解除するか。デフォルトはFalse。
+    #         the_end (bool): エンドの強制読み込みを解除するか。デフォルトはFalse。
 
-        Returns:
-        -------
-            str: レスポンスメッセージ
-        """
+    #     Returns:
+    #     -------
+    #         str: レスポンスメッセージ
+    #     """
 
-        command = f"forceload remove {posA}"
-        if posB:
-            command += f" {posB}"
-        if orver_world:
-            result, status = self.send_command(command) + "\n"
-        if the_nether:
-            result, status += self.send_command(f"execute in minecraft:the_nether run {command}") + "\n"
-        if the_end:
-            result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
-        return result[:-1]
+    #     command = f"forceload remove {posA}"
+    #     if posB:
+    #         command += f" {posB}"
+    #     if orver_world:
+    #         result, status = self.send_command(command) + "\n"
+    #     if the_nether:
+    #         result, status += self.send_command(f"execute in minecraft:the_nether run {command}") + "\n"
+    #     if the_end:
+    #         result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
+    #     return result[:-1]
 
-    def forceload_remove_all(self, orver_world: bool = True, the_nether: bool = False, the_end: bool = False) -> str:
-        """全ての強制ロードを解除します。
+    # def forceload_remove_all(self, orver_world: bool = True, the_nether: bool = False, the_end: bool = False) -> str:
+    #     """全ての強制ロードを解除します。
 
-        Args:
-        -----
-            orver_world (bool): オーバーワールドの強制読み込みを解除するか。デフォルトはTrue。
-            the_nether (bool): ネザーの強制読み込みを解除するか。デフォルトはFalse。
-            the_end (bool): エンドの強制読み込みを解除するか。デフォルトはFalse。
+    #     Args:
+    #     -----
+    #         orver_world (bool): オーバーワールドの強制読み込みを解除するか。デフォルトはTrue。
+    #         the_nether (bool): ネザーの強制読み込みを解除するか。デフォルトはFalse。
+    #         the_end (bool): エンドの強制読み込みを解除するか。デフォルトはFalse。
 
-        Returns:
-        -------
-            str: レスポンスメッセージ
-        """
+    #     Returns:
+    #     -------
+    #         str: レスポンスメッセージ
+    #     """
 
-        command = "forceload remove all"
-        if orver_world:
-            result, status = self.send_command(command) + "\n"
-        if the_nether:
-            result, status += self.send_command(f"execute in minecraft:the_nether run {command}") + "\n"
-        if the_end:
-            result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
-        return result[:-1]
+    #     command = "forceload remove all"
+    #     if orver_world:
+    #         result, status = self.send_command(command) + "\n"
+    #     if the_nether:
+    #         result, status += self.send_command(f"execute in minecraft:the_nether run {command}") + "\n"
+    #     if the_end:
+    #         result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
+    #     return result[:-1]
 
-    def forceload_query(self, pos: str=None, orver_world: bool = True, the_nether: bool = False, the_end: bool = False) -> str:
-        """強制ロードの状態を確認します。引数がない場合はorver_worldの強制ロードの状態を確認します。
+    # def forceload_query(self, pos: str=None, orver_world: bool = True, the_nether: bool = False, the_end: bool = False) -> str:
+    #     """強制ロードの状態を確認します。引数がない場合はorver_worldの強制ロードの状態を確認します。
 
-        チャンクの座標ではなくブロックの座標を指定する必要があります。
-        座標は、XとZの値をカンマで区切って指定します。
+    #     チャンクの座標ではなくブロックの座標を指定する必要があります。
+    #     座標は、XとZの値をカンマで区切って指定します。
 
-        Args:
-        -----
-            pos (str): 状態を確認する座標
-            orver_world (bool): オーバーワールドの状態を確認するか。デフォルトはTrue。
-            the_nether (bool): ネザーの状態を確認するか。デフォルトはFalse。
-            the_end (bool): エンドの状態を確認するか。デフォルトはFalse。
+    #     Args:
+    #     -----
+    #         pos (str): 状態を確認する座標
+    #         orver_world (bool): オーバーワールドの状態を確認するか。デフォルトはTrue。
+    #         the_nether (bool): ネザーの状態を確認するか。デフォルトはFalse。
+    #         the_end (bool): エンドの状態を確認するか。デフォルトはFalse。
 
-        Returns:
-        -------
-            str: レスポンスメッセージ
-        """
+    #     Returns:
+    #     -------
+    #         str: レスポンスメッセージ
+    #     """
 
-        command = f"forceload query"
-        if pos:
-            command += f" {pos}"
-        if orver_world:
-            result, status = self.send_command(command) + "\n"
-        if the_nether:
-            result, status += self.send_command(f"execute in minecraft:the_nether run {command}") + "\n"
-        if the_end:
-            result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
-        return result[:-1]
+    #     command = f"forceload query"
+    #     if pos:
+    #         command += f" {pos}"
+    #     if orver_world:
+    #         result, status = self.send_command(command) + "\n"
+    #     if the_nether:
+    #         result, status += self.send_command(f"execute in minecraft:the_nether run {command}") + "\n"
+    #     if the_end:
+    #         result, status += self.send_command(f"execute in minecraft:the_end run {command}") + "\n"
+    #     return result[:-1]
 
     def say(self, message: str) -> str:
         """チャットにメッセージを送信します。

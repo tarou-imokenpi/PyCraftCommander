@@ -23,14 +23,37 @@ with PyCraftCommander(host, port, password) as server:
 
     num = 10
 
-    block = MCID.GOLD_BLOCK
+    block = MCID.DIAMOND_BLOCK
 
-    area = deepcopy(p.int_pos)
+    myPos = deepcopy(p.int_pos)
+    myPos.x += 0
+    myPos.y -= 10
+    myPos.z += 0
 
-    pos1 = area
-    pos2 = area
-    pos2.x += num
-    pos2.y += num
-    res = server.fill(pos1, pos2, block)
+    time.sleep(1)
+    count = 0
+    for i in range(10):
+        # myPos.x -= 1s
 
-    print(res)
+        for i in range(10):
+            myPos.x += 1
+            server.set_block(myPos, block)
+            time.sleep(0.01)
+
+        for i in range(10):
+            myPos.z += 1
+            server.set_block(myPos, block)
+            time.sleep(0.01)
+
+        for i in range(10):
+
+            server.set_block(myPos, block)
+            time.sleep(0.01)
+
+        for i in range(10):
+            server.set_block(myPos, block)
+            time.sleep(0.01)
+
+        myPos.y += 1
+        myPos.z -= 1
+        count += 1
