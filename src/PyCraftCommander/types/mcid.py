@@ -806,6 +806,39 @@ class V1_21(StrEnum):
     MUTTON = "minecraft:mutton"
     MYCELIUM = "minecraft:mycelium"
 
+    # N
+    NAME_TAG = "minecraft:name_tag"
+    NAUTILUS_SHELL = "minecraft:nautilus_shell"
+    NETHER_BRICK = "minecraft:nether_brick"
+    NETHER_BRICK_FENCE = "minecraft:nether_brick_fence"
+    NETHER_BRICK_SLAB = "minecraft:nether_brick_slab"
+    NETHER_BRICK_STAIRS = "minecraft:nether_brick_stairs"
+    NETHER_BRICK_WALL = "minecraft:nether_brick_wall"
+    NETHER_BRICKS = "minecraft:nether_bricks"
+    NETHER_GOLD_ORE = "minecraft:nether_gold_ore"
+    NETHER_QUARTZ_ORE = "minecraft:nether_quartz_ore"
+    NETHER_SPROUTS = "minecraft:nether_sprouts"
+    NETHER_STAR = "minecraft:nether_star"
+    NETHER_WART = "minecraft:nether_wart"
+    NETHER_WART_BLOCK = "minecraft:nether_wart_block"
+    NETHERITE_AXE = "minecraft:netherite_axe"
+    NETHERITE_BLOCK = "minecraft:netherite_block"
+    NETHERITE_BOOTS = "minecraft:netherite_boots"
+    NETHERITE_CHESTPLATE = "minecraft:netherite_chestplate"
+    NETHERITE_HELMET = "minecraft:netherite_helmet"
+    NETHERITE_HOE = "minecraft:netherite_hoe"
+    NETHERITE_INGOT = "minecraft:netherite_ingot"
+    NETHERITE_LEGGINGS = "minecraft:netherite_leggings"
+    NETHERITE_PICKAXE = "minecraft:netherite_pickaxe"
+    NETHERITE_SCRAP = "minecraft:netherite_scrap"
+    NETHERITE_SHOVEL = "minecraft:netherite_shovel"
+    NETHERITE_SWORD = "minecraft:netherite_sword"
+    NETHERITE_UPGRADE_SMITHING_TEMPLATE = (
+        "minecraft:netherite_upgrade_smithing_template"
+    )
+    NETHERRACK = "minecraft:netherrack"
+    NOTE_BLOCK = "minecraft:note_block"
+
 
 MinecraftVersion = Literal["1.21"]
 
