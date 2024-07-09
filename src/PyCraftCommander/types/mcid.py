@@ -624,6 +624,26 @@ class V1_21(StrEnum):
     ITEM_FRAME = "minecraft:item_frame"
 
     # J
+    JACK_O_LANTERN = "minecraft:jack_o_lantern"
+    JIGSAW = "minecraft:jigsaw"
+    JUKEBOX = "minecraft:jukebox"
+    JUNGLE_BOAT = "minecraft:jungle_boat"
+    JUNGLE_BUTTON = "minecraft:jungle_button"
+    JUNGLE_CHEST_BOAT = "minecraft:jungle_chest_boat"
+    JUNGLE_DOOR = "minecraft:jungle_door"
+    JUNGLE_FENCE = "minecraft:jungle_fence"
+    JUNGLE_FENCE_GATE = "minecraft:jungle_fence_gate"
+    JUNGLE_HANGING_SIGN = "minecraft:jungle_hanging_sign"
+    JUNGLE_LEAVES = "minecraft:jungle_leaves"
+    JUNGLE_LOG = "minecraft:jungle_log"
+    JUNGLE_PLANKS = "minecraft:jungle_planks"
+    JUNGLE_PRESSURE_PLATE = "minecraft:jungle_pressure_plate"
+    JUNGLE_SAPLING = "minecraft:jungle_sapling"
+    JUNGLE_SIGN = "minecraft:jungle_sign"
+    JUNGLE_SLAB = "minecraft:jungle_slab"
+    JUNGLE_STAIRS = "minecraft:jungle_stairs"
+    JUNGLE_TRAPDOOR = "minecraft:jungle_trapdoor"
+    JUNGLE_WOOD = "minecraft:jungle_wood"
 
 
 MinecraftVersion = Literal["1.21"]
