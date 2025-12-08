@@ -2,10 +2,9 @@
 
 PyCraftCommander は、Minecraft Java Edition の RCON（Remote Console）を使ってサーバーを操作するための軽量な Python ライブラリです。`RCON` プロトコルをラップし、プレイヤー情報の取得、テレポート、ブロック配置、ゲームモード変更、アイテム付与、エフェクト付与など、よく使うコマンドを簡単に呼び出せる高水準な API を提供します。
 
-:::tip
-対象: Python 3.8 以上  
-対応 Minecraft バージョン: 1.21 (mcid 列挙型に対応)
-:::
+> **💡 Tip**  
+> 対象: Python 3.8 以上  
+> 対応 Minecraft バージョン: 1.21 (mcid 列挙型に対応)
 
 ## 主な機能
 
@@ -39,9 +38,8 @@ rcon.port=25575
 rcon.password=<your_password>
 ```
 
-:::warning
-RCON パスワードは外部に漏れないように管理してください。RCON は強力な管理機能を持つため、公開サーバーではファイアウォールや ACL を使ってアクセス制限を行ってください。
-:::
+> **⚠️ Warning**  
+> RCON パスワードは外部に漏れないように管理してください。RCON は強力な管理機能を持つため、公開サーバーではファイアウォールや ACL を使ってアクセス制限を行ってください。
 
 ## 使い方（Quickstart）
 
