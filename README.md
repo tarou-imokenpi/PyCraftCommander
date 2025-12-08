@@ -111,11 +111,10 @@ with PyCraftCommander(host, port, password) as server:
 
 ## 例: ダイヤモンドブロックでオブジェクトを作る
 
-次の例は、プレイヤーの下 10 ブロックにダイヤモンドブロックを並べていくスクリプトです（`main.py` の内容）。
+### 例1: 下に垂直に 10 ブロック配置
 
 ```python
-from PyCraftCommander import PyCraftCommander, GET_MCID
-from copy import deepcopy
+from PyCraftCommander import PyCraftCommander, GET_MCID, Pos
 import time
 
 host = 'localhost'
@@ -127,16 +126,43 @@ with PyCraftCommander(host, port, password) as server:
     players = server.get_player_list()
     if players:
         p = server.get_player_info(players[0])
-        myPos = deepcopy(p.int_pos)
-        myPos.y -= 10
         mcid = GET_MCID('1.21')
 
-        for y in range(10):
-            for x in range(10):
-                myPos.x += 1
-                server.set_block(myPos, mcid.DIAMOND_BLOCK)
+        # プレイヤーの下 10 ブロックに垂直にダイヤモンドを配置
+        start_y = int(p.pos.y) - 1  # プレイヤーの 1 ブロック下
+        for i in range(10):
+            pos = Pos(int(p.pos.x), start_y - i, int(p.pos.z))
+            server.set_block(pos, mcid.DIAMOND_BLOCK)
+            time.sleep(0.01)
+```
+
+### 例2: 正方形グリッド（10×10）を描く
+
+```python
+from PyCraftCommander import PyCraftCommander, GET_MCID, Pos
+import time
+
+host = 'localhost'
+port = 25575
+password = 'password'
+
+with PyCraftCommander(host, port, password) as server:
+    server.auth()
+    players = server.get_player_list()
+    if players:
+        p = server.get_player_info(players[0])
+        mcid = GET_MCID('1.21')
+
+        # プレイヤーの下 10 ブロック地点から xy 平面に 10×10 の正方形を描く
+        base_x = int(p.pos.x)
+        base_y = int(p.pos.y) - 1
+        base_z = int(p.pos.z)
+
+        for x_offset in range(10):
+            for z_offset in range(10):
+                pos = Pos(base_x + x_offset, base_y, base_z + z_offset)
+                server.set_block(pos, mcid.DIAMOND_BLOCK)
                 time.sleep(0.01)
-            myPos.y += 1
 ```
 
 ## 注意点
